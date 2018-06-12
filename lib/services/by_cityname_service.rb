@@ -18,6 +18,9 @@ class ByCityName
   def get_city_id
     @city_name_weather['id']
   end
+  def get_city_name
+    @city_name_weather['name']
+  end
   def get_city_coord_longitude
     @city_name_weather['coord']['lon']
   end
@@ -32,6 +35,9 @@ class ByCityName
   end
   def get_city_weather_description
     @city_name_weather['weather'][0]['description']
+  end
+  def get_city_base
+    @city_name_weather['base']
   end
   def get_city_weather_temp
     @city_name_weather['main']['temp']

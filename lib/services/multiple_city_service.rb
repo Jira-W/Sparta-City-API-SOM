@@ -23,8 +23,7 @@ class MultipleCityWeather
     @city_id_arr.push(city_id_1['id'], city_id_2['id'])
     p @city_id_arr
   end
-  #
-  #
+
   def get_multiple_city_weather
     p @multiple_city_weather =
     JSON.parse(self.class.get("/group?id=#{@city_id_string}&APPID=75dc18cfc372a10411d0acc2f7246eb7").body)
@@ -98,7 +97,7 @@ class MultipleCityWeather
   # end
 
 end
-call = MultipleCityWeather.new(['London','Paris',])
-call.get_multiple_city_id
-call.get_city_id_to_string
-call.get_multiple_city_weather
+# call = MultipleCityWeather.new(['London','Paris',])
+# call.get_multiple_city_id
+# call.get_city_id_to_string
+# call.get_multiple_city_weather
