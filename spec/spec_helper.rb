@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../lib/Postcodesio'
+require_relative '../lib/Openweather'
 
 
 RSpec.configure do |config|

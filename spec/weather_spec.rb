@@ -1,39 +1,40 @@
 require 'spec_helper'
 
-describe Postcodesio do
+describe Weatherio do
 
-  context 'requesting information on a single postcode works correctly' do
+  context 'requesting weather by city name works correctly' do
 
     before(:all) do
-      @single_service = Postcodesio.new.single_postcode_service
-      @random_postcode = Postcodesio.new.random_postcode_service.get_random_postcode
-      @single_service.get_single_postcode(@random_postcode)
+      @city_weather = Weatherio.new.city_name_service
+      @city_weather.get_weather_by_city_name('london')
+    end
+    it "should respond a co-ordinate as a float" do
+      expect(@city_weather.get_city_coord_longitude).to be_kind_of(Float)
+      expect(@city_weather.get_city_coord_latitude).to be_kind_of(Float)
     end
 
-    it "should respond with a status message of 200" do
-      expect(@single_service.get_status).to eq 200
+    it "should respond with a city inetger" do
+      expect(@city_weather.get_city_id).to be_kind_of(Integer)
     end
 
-    it "should have a results hash" do
-      expect(@single_service.get_result).to be_kind_of(Hash)
-    end
 
-    it "should return a postcode between 5-7 in length"  do
-      expect(@single_service.get_postcode.length).to be_between(5,7)
-    end
-
-    it "should return an quality key integer between 1-9" do
-      expect(@single_service.get_result_quality).to be_kind_of(Integer)
-      expect(@single_service.get_result_quality).to be_between(1,9)
-    end
-
-    it "should return an ordnance survey eastings value as integer" do
-      expect(@single_service.get_ordance_eastings).to be_kind_of(Integer)
-    end
-
-    it "should return an ordnance survey northings value as integer" do
-      expect(@single_service.get_ordance_northings).to be_kind_of(Integer)
-    end
+    #
+    # it "should return a postcode between 5-7 in length"  do
+    #   expect(@single_service.get_postcode.length).to be_between(5,7)
+    # end
+    #
+    # it "should return an quality key integer between 1-9" do
+    #   expect(@single_service.get_result_quality).to be_kind_of(Integer)
+    #   expect(@single_service.get_result_quality).to be_between(1,9)
+    # end
+    #
+    # it "should return an ordnance survey eastings value as integer" do
+    #   expect(@single_service.get_ordance_eastings).to be_kind_of(Integer)
+    # end
+    #
+    # it "should return an ordnance survey northings value as integer" do
+    #   expect(@single_service.get_ordance_northings).to be_kind_of(Integer)
+    # end
 
   #   it "should return a country which is one of the four constituent countries of the UK" do
   #     expect(@response['result']['country']).to match("England").or match("Scotland")
