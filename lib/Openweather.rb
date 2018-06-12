@@ -11,9 +11,8 @@ class Weatherio
   def get_random_city
     RandomCity.new
   end
-  def multiple_city_service
-    MultipleCityWeather.new
+  def multiple_city_service(city_arr)
+    MultipleCityWeather.new(city_arr)
   end
-
 
 end

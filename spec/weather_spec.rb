@@ -88,6 +88,18 @@ describe Weatherio do
     it "should return a Time of data calculation, unix, UTC as Integer" do
       expect(@city_weather.get_city_unix_time).to be_kind_of(Integer)
     end
-
   end
+  context 'requesting weather for multiple city works correctly' do
+
+    before(:all) do
+      p @city_name = 2.times.collect {Weatherio.new.get_random_city.get_random_city_name}
+      @multi_city_weather = Weatherio.new.multiple_city_service(@city_name)
+      @respond = @multi_city_weather.get_multiple_city_weather
+    end
+    it "should have a results hash" do
+      expect(@respond).to be_kind_of(Hash)
+    end
+
+    end
+
 end
