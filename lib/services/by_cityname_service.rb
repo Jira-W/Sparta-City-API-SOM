@@ -9,7 +9,7 @@ class ByCityName
 
   def get_weather_by_city_name(city)
     @city_name_weather =
-    JSON.parse(self.class.get("&q=#{city}").body)
+    JSON.parse(self.class.get(URI.encode("&q=#{city}")).body)
   end
 
   def get_weather_result
@@ -71,6 +71,9 @@ class ByCityName
   end
   def get_city_weather_name
     @city_name_weather['name']
+  end
+  def get_city_unix_time
+    @city_name_weather['dt']
   end
 
 end

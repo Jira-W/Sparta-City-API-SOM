@@ -16,6 +16,6 @@ class RandomCity
   def get_random_city_name
     get_random_city_id
     city = @city_name.find {|i| i["id"] == @city_id[@random_city_id]}
-    p city['name'].gsub(" ", "")
+    p city['name']
   end
 end
