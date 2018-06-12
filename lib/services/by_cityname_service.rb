@@ -4,15 +4,15 @@ require 'json'
 class ByCityName
   include HTTParty
 
-  base_uri 'https://api.openweathermap.org/data/2.5/'
+
+  base_uri "api.openweathermap.org/data/2.5/weather?APPID=75dc18cfc372a10411d0acc2f7246eb7"
 
   def get_weather_by_city_name(city)
     @single_postcode_data =
-    JSON.parse(self.class.get("/weather?q=#{city}").body)
+    JSON.parse(self.class.get("&q=#{city}").body)
   end
 
 end
 
-# call = SinglePostcodeService.new
-# call.get_single_postcode('w93pt')
-# call.get_postcode
+call = ByCityName.new
+p call.get_weather_by_city_name('london')
