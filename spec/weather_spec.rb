@@ -6,7 +6,8 @@ describe Weatherio do
 
     before(:all) do
       @city_weather = Weatherio.new.city_name_service
-      @city_weather.get_weather_by_city_name('london')
+      @city_name = Weatherio.new.get_random_city.get_random_city_name
+      @city_weather.get_weather_by_city_name(@city_name)
     end
     it "should respond a co-ordinate as a float" do
       expect(@city_weather.get_city_coord_longitude).to be_kind_of(Float)
@@ -38,17 +39,17 @@ describe Weatherio do
       expect(@city_weather.get_city_weather_humidity).to be_kind_of(Integer)
     end
     it "should return an pressure as integer" do
-      expect(@city_weather.get_city_weather_pressure).to be_kind_of(Integer)
+      expect(@city_weather.get_city_weather_pressure).to be_kind_of(Integer).or be_kind_of(Float)
     end
     #
     it "should return an visibility as integer" do
-      expect(@city_weather.get_city_weather_visibility).to be_kind_of(Integer)
+      expect(@city_weather.get_city_weather_visibility).to be_kind_of(Integer).or be_kind_of(Float)
     end
     it "should return an wind speed as float" do
       expect(@city_weather.get_city_weather_wind_speed).to be_kind_of(Float)
     end
     it "should return an wind degrees as integer" do
-      expect(@city_weather.get_city_weather_wind_degree).to be_kind_of(Integer)
+      expect(@city_weather.get_city_weather_wind_degree).to be_kind_of(Integer).or be_kind_of(Float)
     end
     it "should return an clouds as integer" do
       expect(@city_weather.get_city_weather_clouds).to be_kind_of(Integer)
