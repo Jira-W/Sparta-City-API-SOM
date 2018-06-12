@@ -38,11 +38,11 @@ describe Weatherio do
     it "should return a humidity as integer" do
       expect(@city_weather.get_city_weather_humidity).to be_kind_of(Integer)
     end
-    it "should return a pressure as integer" do
+    it "should return a pressure as integer or a float" do
       expect(@city_weather.get_city_weather_pressure).to be_kind_of(Integer).or be_kind_of(Float)
     end
     #
-    it "should return a visibility as integer" do
+    it "should return a visibility as integer or float or nil" do
       expect(@city_weather.get_city_weather_visibility).to be_kind_of(Integer).or be_kind_of(Float).or be nil
     end
     it "should return a wind speed as float or integer" do

@@ -1,5 +1,6 @@
 require_relative 'services/by_cityname_service'
 require_relative 'services/random_city_generator'
+require_relative 'services/multiple_city_service'
 
 
 class Weatherio
@@ -10,5 +11,9 @@ class Weatherio
   def get_random_city
     RandomCity.new
   end
+  def multiple_city_service
+    MultipleCityWeather.new
+  end
+
 
 end
