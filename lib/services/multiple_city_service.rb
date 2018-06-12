@@ -36,9 +36,7 @@ class MultipleCityWeather
   def get_city_id_to_string
     @city_id_string = @city_id_arr.join(",")
   end
-
+  def get_multiple_city_count
+      @multiple_city_weather['cnt']
+  end
 end
-# call = MultipleCityWeather.new(['London','Paris'])
-# call.get_multiple_city_id
-# call.get_city_id_to_string
-# call.get_multiple_city_weather

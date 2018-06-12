@@ -99,6 +99,9 @@ describe Weatherio do
     it "should have a results hash" do
       expect(@respond).to be_kind_of(Hash)
     end
+    it "should have a results equal to number of multiple cities requested" do
+      expect(@multi_city_weather.get_multiple_city_count).to eq 2
+    end
 
     end
 
