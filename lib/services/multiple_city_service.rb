@@ -18,18 +18,21 @@ class MultipleCityWeather
 
   def get_multiple_city_id
     @city_id_arr = []
-    city_id_1 = @city_name.find {|i| i["name"] == city_arr[0]}
-    city_id_2 = @city_name.find {|i| i["name"] == city_arr[1]}
-    @city_id_arr.push(city_id_1['id'], city_id_2['id'])
-    p @city_id_arr
+    x = 0
+    while x < city_arr.length
+      city_id = @city_name.find {|i| i["name"] == city_arr[x]}
+      p @city_id_arr.push city_id['id']
+      x+=1
+    end
+    @city_id_arr
   end
 
   def get_multiple_city_weather
-    p @multiple_city_weather =
+    @multiple_city_weather =
     JSON.parse(self.class.get("/group?id=#{@city_id_string}&APPID=75dc18cfc372a10411d0acc2f7246eb7").body)
   end
   def get_city_id_to_string
-  p @city_id_string = @city_id_arr.join(",")
+  p  @city_id_string = @city_id_arr.join(",")
   end
 
   # def get_weather_result
@@ -97,7 +100,7 @@ class MultipleCityWeather
   # end
 
 end
-# call = MultipleCityWeather.new(['London','Paris',])
-# call.get_multiple_city_id
-# call.get_city_id_to_string
-# call.get_multiple_city_weather
+call = MultipleCityWeather.new(['London','Paris',])
+call.get_multiple_city_id
+call.get_city_id_to_string
+call.get_multiple_city_weather
