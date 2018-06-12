@@ -25,82 +25,46 @@ describe Weatherio do
       expect(@city_weather.get_city_weather_description).to be_kind_of(String)
     end
     #
-    # it "should return an quality key integer between 1-9" do
-    #   expect(@single_service.get_result_quality).to be_kind_of(Integer)
-    #   expect(@single_service.get_result_quality).to be_between(1,9)
-    # end
+    it "should return an temperature float" do
+      expect(@city_weather.get_city_weather_temp).to be_kind_of(Float)
+    end
+    it "should return an minimum temperature as float" do
+      expect(@city_weather.get_city_weather_temp_min).to be_kind_of(Float)
+    end
+    it "should return an maximum temperature as float" do
+      expect(@city_weather.get_city_weather_temp_max).to be_kind_of(Float)
+    end
+    it "should return an humidity as integer" do
+      expect(@city_weather.get_city_weather_humidity).to be_kind_of(Integer)
+    end
+    it "should return an pressure as integer" do
+      expect(@city_weather.get_city_weather_pressure).to be_kind_of(Integer)
+    end
     #
-    # it "should return an ordnance survey eastings value as integer" do
-    #   expect(@single_service.get_ordance_eastings).to be_kind_of(Integer)
-    # end
-    #
-    # it "should return an ordnance survey northings value as integer" do
-    #   expect(@single_service.get_ordance_northings).to be_kind_of(Integer)
-    # end
-
-  #   it "should return a country which is one of the four constituent countries of the UK" do
-  #     expect(@response['result']['country']).to match("England").or match("Scotland")
-  #   end
-  #
-  #   it "should return a string value for NHS authority " do
-  #     expect(@response['result']['country']).to be_kind_of(String)
-  #   end
-  #
-  #   it "should return a longitude float value" do
-  #     expect(@response['result']['longitude']).to be_kind_of(Float)
-  #   end
-  #
-  #   it "should return a latitude float value" do
-  #     expect(@response['result']['latitude']).to be_kind_of(Float)
-  #   end
-  #
-  #   it "should return a parliamentary constituency string" do
-  #     expect(@response['result']['parliamentary_constituency']).to be_kind_of(String)
-  #   end
-  #
-  #   it "should return a european_electoral_region string" do
-  #     expect(@response['result']['european_electoral_region']).to be_kind_of(String)
-  #   end
-  #
-  #   it "should return a primary_care_trust string" do
-  #     expect(@response['result']['primary_care_trust']).to be_kind_of(String)
-  #   end
-  #
-  #   it "should return a region string" do
-  #     expect(@response['result']['region']).to be_kind_of(String)
-  #   end
-  #
-  #   it "should return a parish string" do
-  #     expect(@response['result']['parish']).to be_kind_of(String)
-  #   end
-  #
-  #   it "should return a lsoa string" do
-  #     expect(@response['result']['lsoa']).to be_kind_of(String)
-  #   end
-  #
-  #   it "should return a msoa string" do
-  #     expect(@response['result']['msoa']).to be_kind_of(String)
-  #   end
-  #   # admin ward and county are not documented however tested below
-  #
-  #   it "should return a admin_district string" do
-  #     expect(@response['result']['admin_district']).to be_kind_of(String)
-  #   end
-  #
-  #   it "should return a incode string of three characters" do
-  #     expect(@response['result']['incode']).to be_kind_of(String)
-  #     expect(@response['result']['incode'].length).to eq 3
-  #   end
-  #
-  #   it "should return a msoa string" do
-  #     expect(@response['result']['msoa']).to be_kind_of(String)
-  #   end
-  #
-  #   it "should return a incode string of 3-4 characters" do
-  #     expect(@response['result']['outcode']).to be_kind_of(String)
-  #     expect(@response['result']['outcode'].length).to be_between(3,4)
-  #   end
-  # end
+    it "should return an visibility as integer" do
+      expect(@city_weather.get_city_weather_visibility).to be_kind_of(Integer)
+    end
+    it "should return an wind speed as float" do
+      expect(@city_weather.get_city_weather_wind_speed).to be_kind_of(Float)
+    end
+    it "should return an wind degrees as integer" do
+      expect(@city_weather.get_city_weather_wind_degree).to be_kind_of(Integer)
+    end
+    it "should return an clouds as integer" do
+      expect(@city_weather.get_city_weather_clouds).to be_kind_of(Integer)
+    end
+    it "should return an country code as string" do
+      expect(@city_weather.get_city_weather_country_code).to be_kind_of(String)
+    end
+    it "should return an sunrise as integer" do
+      expect(@city_weather.get_city_weather_sunrise).to be_kind_of(Integer)
+    end
+    it "should return an sunset as integer" do
+      expect(@city_weather.get_city_weather_sunset).to be_kind_of(Integer)
+    end
+    it "should return an city name as string" do
+      expect(@city_weather.get_city_weather_name).to be_kind_of(String)
+    end
   #
   # context "multiple postcodes validation" do
   #

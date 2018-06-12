@@ -33,12 +33,46 @@ class ByCityName
   def get_city_weather_description
     @city_name_weather['weather'][0]['description']
   end
-  def get_city_weather_description
-    @city_name_weather['weather'][0]['description']
+  def get_city_weather_temp
+    @city_name_weather['main']['temp']
+  end
+  def get_city_weather_temp_min
+    @city_name_weather['main']['temp_min']
+  end
+  def get_city_weather_temp_max
+    @city_name_weather['main']['temp_max']
+  end
+  def get_city_weather_humidity
+    @city_name_weather['main']['humidity']
+  end
+  def get_city_weather_pressure
+    @city_name_weather['main']['pressure']
+  end
+  def get_city_weather_visibility
+    @city_name_weather['visibility']
+  end
+  def get_city_weather_wind_speed
+    @city_name_weather['wind']['speed']
+  end
+  def get_city_weather_wind_degree
+    @city_name_weather['wind']['deg']
+  end
+  def get_city_weather_clouds
+    @city_name_weather['clouds']['all']
+  end
+  def get_city_weather_country_code
+    @city_name_weather['sys']['country']
+  end
+  def get_city_weather_sunrise
+    @city_name_weather['sys']['sunrise']
+  end
+  def get_city_weather_sunset
+    @city_name_weather['sys']['sunset']
+  end
+  def get_city_weather_name
+    @city_name_weather['name']
   end
 
 end
-
-call = ByCityName.new
-call.get_weather_by_city_name('london')
-p call.get_city_id
+# call = ByCityName.new
+# call.get_weather_by_city_name('london')
