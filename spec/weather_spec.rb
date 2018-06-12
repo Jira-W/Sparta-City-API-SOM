@@ -17,11 +17,13 @@ describe Weatherio do
       expect(@city_weather.get_city_id).to be_kind_of(Integer)
     end
 
-
-    #
-    # it "should return a postcode between 5-7 in length"  do
-    #   expect(@single_service.get_postcode.length).to be_between(5,7)
-    # end
+    it "should have a results hash" do
+      expect(@city_weather.get_weather_result).to be_kind_of(Hash)
+    end
+    it "should return a weather forcast as string"  do
+      expect(@city_weather.get_city_weather_main).to be_kind_of(String)
+      expect(@city_weather.get_city_weather_description).to be_kind_of(String)
+    end
     #
     # it "should return an quality key integer between 1-9" do
     #   expect(@single_service.get_result_quality).to be_kind_of(Integer)

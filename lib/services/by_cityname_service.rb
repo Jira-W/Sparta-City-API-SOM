@@ -12,14 +12,29 @@ class ByCityName
     JSON.parse(self.class.get("&q=#{city}").body)
   end
 
+  def get_weather_result
+    @city_name_weather
+  end
   def get_city_id
-    @city_name_weather['weather'][0]['id']
+    @city_name_weather['id']
   end
   def get_city_coord_longitude
     @city_name_weather['coord']['lon']
   end
   def get_city_coord_latitude
     @city_name_weather['coord']['lat']
+  end
+  def get_city_coord_weather
+    @city_name_weather['coord']['lat']
+  end
+  def get_city_weather_main
+    @city_name_weather['weather'][0]['main']
+  end
+  def get_city_weather_description
+    @city_name_weather['weather'][0]['description']
+  end
+  def get_city_weather_description
+    @city_name_weather['weather'][0]['description']
   end
 
 end
