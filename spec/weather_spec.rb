@@ -6,7 +6,7 @@ describe Weatherio do
 
     before(:all) do
       @city_weather = Weatherio.new.city_name_service
-      p @city_name = Weatherio.new.get_random_city.get_random_city_name
+      @city_name = Weatherio.new.get_random_city.get_random_city_name
       @city_weather.get_weather_by_city_name(@city_name)
     end
     it "should have a results hash" do
@@ -68,7 +68,7 @@ describe Weatherio do
       expect(@city_weather.get_city_weather_clouds).to be_kind_of(Integer)
     end
     it "should return a clouds between 0 to 100% " do
-      expect(@city_weather.get_city_weather_clouds).to be_between(0, 100)
+      expect(@city_weather.get_city_weather_clouds).to be_between(0, 100).inclusive
     end
     it "should return a country code as string" do
       expect(@city_weather.get_city_weather_country_code).to be_kind_of(String)
@@ -92,7 +92,7 @@ describe Weatherio do
   context 'requesting weather for multiple city works correctly' do
 
     before(:all) do
-      p @city_name = 2.times.collect {Weatherio.new.get_random_city.get_random_city_name}
+      @city_name = 2.times.collect {Weatherio.new.get_random_city.get_random_city_name}
       @multi_city_weather = Weatherio.new.multiple_city_service(@city_name)
       @respond = @multi_city_weather.get_multiple_city_weather
     end
