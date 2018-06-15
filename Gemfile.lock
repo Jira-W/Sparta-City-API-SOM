@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.3)
+    dotenv (2.4.0)
     httparty (0.15.5)
       multi_xml (>= 0.5.2)
     json (2.1.0)
@@ -25,6 +26,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   httparty
   json
   rspec
@@ -32,4 +34,4 @@ DEPENDENCIES
   rspec-json_expectations
 
 BUNDLED WITH
-   1.13.2
+   1.16.2

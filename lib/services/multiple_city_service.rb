@@ -27,16 +27,19 @@ class MultipleCityWeather
     @city_id_arr
   end
 
+  def get_city_id_to_string
+    @city_id_string = @city_id_arr.join(",")
+  end
+
   def get_multiple_city_weather
     get_multiple_city_id
     get_city_id_to_string
     @multiple_city_weather =
     JSON.parse(self.class.get("/group?id=#{@city_id_string}&APPID=75dc18cfc372a10411d0acc2f7246eb7").body)
   end
-  def get_city_id_to_string
-    @city_id_string = @city_id_arr.join(",")
-  end
+  
   def get_multiple_city_count
       @multiple_city_weather['cnt']
   end
+
 end

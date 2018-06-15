@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'dotenv'
+
 
 describe Weatherio do
 
@@ -28,6 +30,9 @@ describe Weatherio do
     it "should return a weather forcast as string"  do
       expect(@city_weather.get_city_weather_main).to be_kind_of(String)
       expect(@city_weather.get_city_weather_description).to be_kind_of(String)
+    end
+    it "should return a weather forcast id"  do
+      expect(@city_weather.get_city_weather_id).to be_kind_of(Integer)
     end
     it "should return a weather base as string"  do
       expect(@city_weather.get_city_base).to be_kind_of(String)
@@ -89,6 +94,7 @@ describe Weatherio do
       expect(@city_weather.get_city_unix_time).to be_kind_of(Integer)
     end
   end
+
   context 'requesting weather for multiple city works correctly' do
 
     before(:all) do
@@ -102,7 +108,6 @@ describe Weatherio do
     it "should have a results equal to number of multiple cities requested" do
       expect(@multi_city_weather.get_multiple_city_count).to eq 2
     end
-
-    end
+  end
 
 end

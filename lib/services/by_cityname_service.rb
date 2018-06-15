@@ -1,12 +1,11 @@
 require 'httparty'
 require 'json'
+require 'yaml'
+require 'dotenv/load'
 
 class ByCityName
-  include HTTParty
-
-
-  base_uri "api.openweathermap.org/data/2.5/weather?APPID=75dc18cfc372a10411d0acc2f7246eb7"
-
+include HTTParty
+  base_uri "api.openweathermap.org/data/2.5/weather?APPID=#{ENV['apikey']}"
   def get_weather_by_city_name(city)
     @city_name_weather =
     JSON.parse(self.class.get(URI.encode("&q=#{city}")).body)
@@ -32,6 +31,9 @@ class ByCityName
   end
   def get_city_weather_main
     @city_name_weather['weather'][0]['main']
+  end
+  def get_city_weather_id
+    @city_name_weather['weather'][0]['id']
   end
   def get_city_weather_description
     @city_name_weather['weather'][0]['description']
@@ -83,5 +85,3 @@ class ByCityName
   end
 
 end
-# call = ByCityName.new
-# call.get_weather_by_city_name('london')
